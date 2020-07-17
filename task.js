@@ -1,2 +1,3 @@
 //task.js
-var intervalID = setInterval(()=>{ console.log('ya') },1000);
+var i = 0;
+var intervalID = setInterval(()=>{ console.log('ya'+i++) },1000);

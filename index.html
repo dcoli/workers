@@ -12,12 +12,15 @@
         <li><a id="switchlink" href="#">switch iframe</a>
         </li>
         <li>
-            <a id="sublink" href="">switch back</a>        
+            <a id="backlink" href="#">switch back</a>        
         </li>
         <li><a id="deletelink" href="#">remove iframe</a>
         </li>
+        <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
+        </li>
     </ul>
     <iframe src="./childwworker.html" id="myframe"></iframe>
+    <script src="workerincl.mjs" id="scr"></script>
     
     <script>
         var frame = document.querySelector('#myframe');
@@ -28,9 +31,12 @@
         document.querySelector('#switchlink').addEventListener('click', () => {
             frame.src = './childnoworker.html';
         });
-        document.querySelector('#sublink').addEventListener('click', () => {
+        document.querySelector('#backlink').addEventListener('click', () => {
                 frame.src = './childwworker.html'
-            })
+            });
+            document.querySelector('#nulllink').addEventListener('click', () => {
+                cdApi = undefined;
+            });
 
     </script>
 </body>
