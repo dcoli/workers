@@ -19,8 +19,10 @@
         <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
         </li>
     </ul>
-    <iframe src="./childwworker.html" id="myframe"></iframe>
-    <script src="workerincl.mjs" id="scr"></script>
+    <iframe src="./child-worker.html" id="myframe"></iframe>
+    <script src="worker-inline.mjs" id="scr">
+        var where="inline"
+    </script>
     
     <script>
         var frame = document.querySelector('#myframe');
@@ -29,10 +31,10 @@
             frame.parentNode.removeChild(frame);
         });
         document.querySelector('#switchlink').addEventListener('click', () => {
-            frame.src = './childnoworker.html';
+            frame.src = './child-noworker.html';
         });
         document.querySelector('#backlink').addEventListener('click', () => {
-                frame.src = './childwworker.html'
+                frame.src = './child-worker.html'
             });
             document.querySelector('#nulllink').addEventListener('click', () => {
                 cdApi = undefined;
