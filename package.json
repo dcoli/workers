@@ -1,0 +1,19 @@
+{
+  "name": "workers",
+  "version": "1.0.0",
+  "description": "Working BioCatch implementation, including an input collection on both parent and iframe. Uses dummy-demo JS.",
+  "main": "index.html",
+  "scripts": {
+    "test": "mocha ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dcoli/workers.git"
+  },
+  "author": "Colin MacAllister",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dcoli/workers/issues"
+  },
+  "homepage": "https://github.com/dcoli/workers#readme"
+}

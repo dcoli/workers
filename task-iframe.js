@@ -1,2 +1,2 @@
 //task.js
-var intervalID = setInterval(()=>{ console.log('iframe wups call') },1000);
+var intervalID = setInterval(()=>{ console.log('iframe wups call') },3000);

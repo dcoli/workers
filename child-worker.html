@@ -2,12 +2,19 @@
 
 <head>
     <script src="worker-iframe.mjs" id="scr"></script>
+    <script src="https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js
+    "></script>
+    <script>
+        cdApi.setCustomerSessionId('iframecsid');
+        cdApi.changeContext("CHILD_IFRAME");
+    </script>
 </head>
 
 <body>
     <p style="color:navy">doc that contains web worker</p>
     <p style="color:navy">notice the console messages every second</p>
     <p style="color:navy">select "switch iframe" to stop</p>
+    <form><input type="text" id="childInput"></input></form>
 </body>
 
 </html>

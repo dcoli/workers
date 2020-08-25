@@ -4,10 +4,16 @@
     <style>li { 
         display: inline; 
         padding: 8px;}</style>
+    <script src="https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js
+    "></script>
+    <script>
+        cdApi.setCustomerSessionId('iframecsid');
+        cdApi.changeContext("PARENT_IFRAME");
+    </script>
 </head>
 
 <body>
-    
+
     <ul>
         <li><a id="switchlink" href="#">switch iframe</a>
         </li>
@@ -19,7 +25,8 @@
         <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
         </li>
     </ul>
-    <iframe src="http://2d77c8e5fcb4.ngrok.io/child-worker.html" id="myframe"></iframe>
+    <form><input type="text" id="parentInput"></input></form>
+    <iframe src="https://1ae1419d9560.ngrok.io/child-worker.html" id="myframe"></iframe>
     <script src="worker-inline.mjs" id="scr">
         var where="inline"
     </script>

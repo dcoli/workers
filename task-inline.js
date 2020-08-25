@@ -1,2 +1,2 @@
 //task.js
-var intervalID = setInterval(()=>{ console.log('inline wups call') },1000);
+var intervalID = setInterval(()=>{ console.log('inline wups call') },3000);

@@ -17,3 +17,6 @@
 8. Observe two wups calls.
 
 9. See playback in Analyst Station.
+
+Conclusion: each iframe is tracked separately with its own SID. The two sessions appear distinct in AS, and each shows only its iframe in the video playback. This is a job for secondary JS!
+
