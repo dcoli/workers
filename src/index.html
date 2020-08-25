@@ -24,13 +24,20 @@
         </li>
         <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
         </li>
+        <li><a href="./getScore">post to the getScore API</a>
+        </li>
     </ul>
-    <form><input type="text" id="parentInput"></input></form>
-    <iframe src="https://1ae1419d9560.ngrok.io/child-worker.html" id="myframe"></iframe>
-    <script src="worker-inline.mjs" id="scr">
+    <form>
+        <input type="text" id="parentInput"></input>
+    </form>
+    <iframe src="https://153f32834fe6.ngrok.io/child-worker.html" id="myframe"></iframe>
+    <script src="./worker-inline.mjs" id="scr">
         var where="inline"
     </script>
-    
+    <pre style="font-size:smaller">
+        <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 },null,2))
+        </script>
+    </pre>
     <script>
         var frame = document.querySelector('#myframe');
         var del = document.querySelector('#deletelink');
@@ -41,7 +48,7 @@
             frame.src = './child-noworker.html';
         });
         document.querySelector('#backlink').addEventListener('click', () => {
-                frame.src = './child-worker.html'
+                frame.src = 'https://153f32834fe6.ngrok.io/child-worker.html'
             });
             document.querySelector('#nulllink').addEventListener('click', () => {
                 cdApi = undefined;

@@ -2,9 +2,10 @@
   "name": "workers",
   "version": "1.0.0",
   "description": "Working BioCatch implementation, including an input collection on both parent and iframe. Uses dummy-demo JS.",
-  "main": "index.html",
+  "main": "index.js",
   "scripts": {
-    "test": "mocha ."
+    "test": "mocha .",
+    "start": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/dcoli/workers/issues"
   },
-  "homepage": "https://github.com/dcoli/workers#readme"
+  "homepage": "https://github.com/dcoli/workers#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "http": "0.0.1-security",
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
 }
