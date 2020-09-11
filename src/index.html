@@ -1,21 +1,41 @@
 <html>
 
 <head>
-    <style>li { 
-        display: inline; 
-        padding: 8px;}</style>
-    <script src="https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js
-    "></script>
+    <style>
+        li {
+            display: inline;
+            padding: 8px;
+        }
+    </style>
+    <!-- <script src="https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js"></script> -->
     <script>
-        cdApi.setCustomerSessionId('iframecsid');
-        cdApi.changeContext("PARENT_IFRAME");
+        (function smartLoad() {
+            var scriptLoaded = sessionStorage.getItem("isjs");
+            if (scriptLoaded === 'true') {
+                return;
+            }
+            else {
+                var constructJS = document.createElement('script');
+                constructJS.type = "text/javascript"
+                constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js";
+                constructJS.onload = function() {
+                    cdApi.setCustomerSessionId('iframecsid');
+                    cdApi.changeContext("PARENT_IFRAME");
+                }
+                document.head.appendChild(constructJS);
+                sessionStorage.setItem("isjs", 'true');
+                window.onbeforeunload = function () {
+                    sessionStorage.removeItem("isjs");
+                };
+            }
+        })()
     </script>
 </head>
 
 <body>
 
     <ul>
-        <li><a id="switchlink" href="#">switch iframe</a>
+        <!-- <li><a id="switchlink" href="#">switch iframe</a>
         </li>
         <li>
             <a id="backlink" href="#">switch back</a>        
@@ -25,17 +45,17 @@
         <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
         </li>
         <li><a href="./getScore">post to the getScore API</a>
-        </li>
+        </li> -->
     </ul>
     <form>
-        <input type="text" id="parentInput"></input>
+        parentInput: <input type="text" id="parentInput"></input>
     </form>
     <iframe src="http://ed3799c9cfe8.ngrok.io/child-worker.html" id="myframe"></iframe>
     <script src="./worker-inline.mjs" id="scr">
-        var where="inline"
+        var where = "inline"
     </script>
     <pre style="font-size:smaller">
-        <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 },null,2))
+        <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 }, null, 2))
         </script>
     </pre>
     <script>
@@ -48,11 +68,11 @@
             frame.src = './child-noworker.html';
         });
         document.querySelector('#backlink').addEventListener('click', () => {
-                frame.src = 'https://153f32834fe6.ngrok.io/child-worker.html'
-            });
-            document.querySelector('#nulllink').addEventListener('click', () => {
-                cdApi = undefined;
-            });
+            frame.src = 'https://153f32834fe6.ngrok.io/child-worker.html'
+        });
+        document.querySelector('#nulllink').addEventListener('click', () => {
+            cdApi = undefined;
+        });
 
     </script>
 </body>
