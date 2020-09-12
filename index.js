@@ -7,8 +7,7 @@ const router = express.Router()
 const path = require("path")
 const fetch = require("node-fetch")
 
-const hostname = "127.0.0.1"
-const port = 3000
+// const hostname = "127.0.0.1"
 express.static("./src")
 
 app.get("/", function (req, res) {
@@ -32,6 +31,10 @@ app.use(function (req, res) {
   res.sendFile(path.join(__dirname + "/src/" + req.path))
 });
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 80;
+}
 app.listen(port);
 
 // const server = http.createServer((req, res) => {
