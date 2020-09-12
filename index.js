@@ -7,7 +7,7 @@ const router = express.Router()
 const path = require("path")
 const fetch = require("node-fetch")
 
-const hostname = "bc-iframes.herokuapp.com"
+const hostname = "parent.magnoliatree.net"
 express.static("./src")
 
 app.get("/", function (req, res) {
