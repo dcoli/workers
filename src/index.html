@@ -34,6 +34,14 @@
 
 <body>
 
+    <form>
+        parentInput: <input type="text" id="parentInput"></input>
+    </form>
+    <iframe src="http://bc-iframes.herokuapp.com/child-worker.html" id="myframe"></iframe>
+    <script src="./worker-inline.mjs" id="scr">
+        var where = "inline"
+    </script>
+    <h2>IGNORE WHAT FOLLOWS</h2>
     <ul>
         <li><a href="./getScore">post to the getScore API</a>
         </li>
@@ -47,13 +55,6 @@
         <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
         </li>
     </ul>
-    <form>
-        parentInput: <input type="text" id="parentInput"></input>
-    </form>
-    <iframe src="http://bc-iframes.herokuapp.com/child-worker.html" id="myframe"></iframe>
-    <script src="./worker-inline.mjs" id="scr">
-        var where = "inline"
-    </script>
     <pre style="font-size:smaller">
         <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 }, null, 2))
         </script>
