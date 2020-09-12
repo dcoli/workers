@@ -7,7 +7,7 @@ const router = express.Router()
 const path = require("path")
 const fetch = require("node-fetch")
 
-// const hostname = "127.0.0.1"
+const hostname = "bc-iframes.herokuapp.com"
 express.static("./src")
 
 app.get("/", function (req, res) {
@@ -37,12 +37,4 @@ if (port == null || port == "") {
 }
 app.listen(port);
 
-// const server = http.createServer((req, res) => {
-//   res.statusCode = 200;
-//   res.setHeader('Content-Type', 'text/plain');
-//   res.end('Hello World');
-// });
-
-// server.listen(port, hostname, () => {
-//   console.log(`Server running at http://${hostname}:${port}/`);
-// });
+console.log(`Server running at http://${hostname}:${port}/`);
