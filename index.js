@@ -9,7 +9,7 @@ const fetch = require("node-fetch")
 
 const hostname = "parent.magnoliatree.net"
 // const apiUrl = "https://bcdn-god.s3.amazonaws.com/scripts/181e494/57e51b7d.js"
-const apiUrl = "https://api-dopeytest.us.v2.biocatch.com/api/v6/score"
+const apiUrl = "https://api-dopeytest.us.v2.customers.biocatch.com/api/v6/score"
 express.static("./src")
 
 app.get("/", function (req, res) {
