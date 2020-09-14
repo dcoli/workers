@@ -8,15 +8,14 @@ const path = require("path")
 const fetch = require("node-fetch")
 
 const hostname = "parent.magnoliatree.net"
-// const apiUrl = "https://bcdn-god.s3.amazonaws.com/scripts/181e494/57e51b7d.js"
-const apiUrl = "https://api-dopeytest.us.v2.customers.biocatch.com/api/v6/score"
+const apiUrl = "https://api-4ff4f23f.eu.v2.we-stats.com/api/v6/score"
+
 express.static("./src")
 
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname + "/src/index.html"));
 });
 
-// https://api-4ff4f23f.eu.v2.we-stats.com/api/v6/score
 app.get("/getScore", function (req, res) {
     body = { "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": req.ip, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 }
 
