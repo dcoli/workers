@@ -17,7 +17,8 @@
             else {
                 var constructJS = document.createElement('script');
                 constructJS.type = "text/javascript"
-                constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js";
+                constructJS.src = "https://bcdn-god.s3.amazonaws.com/scripts/181e494/57e51b7d.js";
+                // constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js";
                 constructJS.onload = function() {
                     cdApi.setCustomerSessionId('iframecsid');
                     cdApi.changeContext("PARENT_IFRAME");
@@ -37,11 +38,11 @@
     <form>
         parentInput: <input type="text" id="parentInput"></input>
     </form>
-    <iframe src="http://bc-iframes.herokuapp.com/child-worker.html" id="myframe"></iframe>
+    <iframe src="http://child.magnoliatree.net/child-worker.html" id="myframe"></iframe>
     <script src="./worker-inline.mjs" id="scr">
         var where = "inline"
     </script>
-    <!-- <ul>
+    <ul>
         <li><a href="./getScore">post to the getScore API</a>
         </li>
         <li><a id="switchlink" href="#">switch iframe src to new file</a>
@@ -57,7 +58,7 @@
     <pre style="font-size:smaller">
         <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 }, null, 2))
         </script>
-    </pre> -->
+    </pre>
     <script>
         var frame = document.querySelector('#myframe');
         var del = document.querySelector('#deletelink');
