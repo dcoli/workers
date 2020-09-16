@@ -3,8 +3,10 @@
 <head>
     <script>
         document.domain="magnoliatree.net"
-        window.parent.cdApi.setCustomerSessionId('iframecsid')
-        window.parent.cdApi.changeContext("CHILD_IFRAME")
+        window.parent.document.onload = () => {
+            window.parent.cdApi.setCustomerSessionId('iframecsid')
+            window.parent.cdApi.changeContext("CHILD_IFRAME")
+        }
     </script>
 </head>
 
