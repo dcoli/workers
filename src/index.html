@@ -34,7 +34,7 @@
 </head>
 
 <body>
-
+    <h2>Iframes</h2>
     <form>
         parentInput: <input type="text" id="parentInput"></input>
     </form>
@@ -50,12 +50,13 @@
         </li>
         <li><a id="deletelink" href="#">remove iframe from DOM</a>
         </li>
-        <!-- <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
-        </li> -->
-        <li><a id="apiCall" href="#">post to the getScore API</a>
+        <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
         </li>
     </ul>
     <h2>API</h2>
+    <ul>
+      <li><a id="apiCall" href="#">post to the getScore API</a>
+    </ul>
     <pre style="font-size:smaller" id="api">
         <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 }, null, 2))
         </script>
