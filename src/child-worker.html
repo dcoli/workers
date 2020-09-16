@@ -2,8 +2,28 @@
 
 <head>
     <script>
-        window.cdApi.setCustomerSessionId('iframecsid');
-        window.cdApi.changeContext("CHILD_IFRAME");
+        document.domain='magnoliatree.net'
+        (function smartLoad() {
+            var scriptLoaded = sessionStorage.getItem("isjs");
+            if (scriptLoaded === 'true') {
+                return;
+            }
+            else {
+                var constructJS = document.createElement('script');
+                constructJS.type = "text/javascript"
+                // constructJS.src = "https://bcdn-god.s3.amazonaws.com/scripts/181e494/57e51b7d.js";
+                constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js";
+                constructJS.onload = function() {
+                    window.cdApi.setCustomerSessionId('iframecsid');
+                    window.cdApi.changeContext("PARENT_IFRAME");
+                }
+                document.head.appendChild(constructJS);
+                sessionStorage.setItem("isjs", 'true');
+                window.onbeforeunload = function () {
+                    sessionStorage.removeItem("isjs");
+                };
+            }
+        })()
     </script>
 </head>
 
