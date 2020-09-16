@@ -11,7 +11,7 @@
     <script>
         (function smartLoad() {
             document.domain="magnoliatree.net"
-            var scriptLoaded = sessionStorage.getItem("isjs");
+            var scriptLoaded = window.parent.sessionStorage.getItem("isjs");
             if (scriptLoaded === 'true') {
                 return;
             }
