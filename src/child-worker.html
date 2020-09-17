@@ -5,6 +5,7 @@
             document.domain="magnoliatree.net"
             // this line makes sure the cdApi has been constructed in the parent before setting its context
             window.parent.document.querySelector("#wupScriptLoader").onload = () => {
+                window.parent.cdApi.changeContext("iframecsid")
                 window.parent.cdApi.changeContext("CHILD_IFRAME")
             }
         </script>
