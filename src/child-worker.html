@@ -7,6 +7,7 @@
             window.parent.cdApi.setCustomerSessionId('iframecsid')
             window.parent.cdApi.changeContext("CHILD_IFRAME")
         }
+        window.onbeforeunload = () => window.parent.cdApi.changeContext("PARENT_IFRAME")
     </script>
 </head>
 
