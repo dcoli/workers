@@ -9,6 +9,7 @@
     </style>
     <script>
         (function smartLoad() {
+            // this line allows the two subdomains to share data
             document.domain="magnoliatree.net"
             var scriptLoaded = sessionStorage.getItem("isjs")
             if (scriptLoaded === 'true') {
@@ -19,6 +20,7 @@
                 constructJS.id = "wupScriptLoader"
                 constructJS.type = "text/javascript"
                 constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js"
+                // this line makes sure the cdApi has been set before manipulating it.
                 constructJS.onload = function() {
                     cdApi.setCustomerSessionId('iframecsid')
                     cdApi.changeContext("PARENT_IFRAME")
