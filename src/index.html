@@ -46,10 +46,11 @@
         </li>
     </ul>
     <script>
-        var frame = document.querySelector('#myframe');
-        var del = document.querySelector('#deletelink');
+        var frame = document.querySelector('#myframe')
+        var del = document.querySelector('#deletelink')
         del.addEventListener('click', () => {
-            frame.parentNode.removeChild(frame);
+            frame.parentNode.removeChild(frame)
+            cdApi.changeContext("PARENT_IFRAME")
         });
     </script>
 </body>
