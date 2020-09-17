@@ -17,6 +17,7 @@
             }
             else {
                 var constructJS = document.createElement('script')
+                constructJS.id = "wupScriptLoader"
                 constructJS.type = "text/javascript"
                 constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js"
                 constructJS.onload = function() {
@@ -39,10 +40,10 @@
         parentInput: <input type="text" id="parentInput"></input>
     </form>
     <iframe src="http://child.magnoliatree.net/child-worker.html" id="myframe"></iframe>
-    <script src="./worker-inline.mjs" id="scr">
+    <!-- <script src="./worker-inline.mjs" id="scr">
         var where = "inline"
-    </script>
-    <ul>
+    </script> -->
+    <!-- <ul>
         <li><a id="switchlink" href="#">switch iframe src to new file</a>
         </li>
         <li>
@@ -86,7 +87,7 @@
             xmlHttp.open("GET", "./getScore", true)
             xmlHttp.send(null)
         })
-    </script>
+    </script> -->
 </body>
 
 </html>
