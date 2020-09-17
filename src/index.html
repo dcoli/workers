@@ -43,51 +43,51 @@
     <!-- <script src="./worker-inline.mjs" id="scr">
         var where = "inline"
     </script> -->
-    <!-- <ul>
-        <li><a id="switchlink" href="#">switch iframe src to new file</a>
+    <ul>
+        <!-- <li><a id="switchlink" href="#">switch iframe src to new file</a>
         </li>
         <li>
             <a id="backlink" href="#">switch back</a>        
-        </li>
+        </li> -->
         <li><a id="deletelink" href="#">remove iframe from DOM</a>
         </li>
-        <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
-        </li>
+        <!-- <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
+        </li> -->
     </ul>
-    <h2>API</h2>
+    <!-- <h2>API</h2>
     <ul>
       <li><a id="apiCall" href="#">post to the getScore API</a>
     </ul>
     <pre style="font-size:smaller" id="api">
         <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 }, null, 2))
         </script>
-    </pre>
+    </pre> -->
     <script>
         var frame = document.querySelector('#myframe');
         var del = document.querySelector('#deletelink');
         del.addEventListener('click', () => {
             frame.parentNode.removeChild(frame);
         });
-        document.querySelector('#switchlink').addEventListener('click', () => {
-            frame.src = './child-noworker.html';
-        });
-        document.querySelector('#backlink').addEventListener('click', () => {
-            frame.src = 'https://child.magnoliatree.net/child-worker.html'
-        });
-        document.querySelector('#nulllink').addEventListener('click', () => {
-            cdApi = undefined;
-        });
-        document.querySelector('#apiCall').addEventListener('click',(e)=>{
-            e.preventDefault()
-            var xmlHttp = new XMLHttpRequest()
-            xmlHttp.onreadystatechange = function() { 
-                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                    document.querySelector('#api').innerHTML = xmlHttp.responseText
-            }
-            xmlHttp.open("GET", "./getScore", true)
-            xmlHttp.send(null)
-        })
-    </script> -->
+        // document.querySelector('#switchlink').addEventListener('click', () => {
+        //     frame.src = './child-noworker.html';
+        // });
+        // document.querySelector('#backlink').addEventListener('click', () => {
+        //     frame.src = 'https://child.magnoliatree.net/child-worker.html'
+        // });
+        // document.querySelector('#nulllink').addEventListener('click', () => {
+        //     cdApi = undefined;
+        // });
+        // document.querySelector('#apiCall').addEventListener('click',(e)=>{
+        //     e.preventDefault()
+        //     var xmlHttp = new XMLHttpRequest()
+        //     xmlHttp.onreadystatechange = function() { 
+        //         if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        //             document.querySelector('#api').innerHTML = xmlHttp.responseText
+        //     }
+        //     xmlHttp.open("GET", "./getScore", true)
+        //     xmlHttp.send(null)
+        // })
+    </script>
 </body>
 
 </html>
