@@ -1,17 +1,21 @@
 <html>
-    <head>
-        <script>
-            // this line allows the two subdomains to share data
-            document.domain="magnoliatree.net"
-            // this line makes sure the cdApi has been constructed in the parent before setting its context
-            window.parent.document.querySelector("#wupScriptLoader").onload = () => {
-                window.parent.cdApi.setCustomerSessionId("iframecsid")
-                window.parent.cdApi.changeContext("CHILD_IFRAME")
-            }
-        </script>
-    </head>
-    <body>
-        <p style="color:navy">iframe that contains a doc that sets the context to "CHILD_IFRAME"</p>
-        <form>childInput: <input type="text" id="childInput"></input></form>
-    </body>
+
+<head>
+    <script>
+        document.domain="magnoliatree.net"
+        window.parent.document.querySelector("#wupScriptLoader").onload = () => {
+            window.parent.cdApi.setCustomerSessionId('iframecsid')
+            window.parent.cdApi.changeContext("CHILD_IFRAME")
+        }
+        window.onbeforeunload = () => window.parent.cdApi.changeContext("PARENT_IFRAME")
+    </script>
+</head>
+
+<body>
+    <p style="color:navy">iframe that contains a doc that sets the csid to "iframecsid" and the context to
+        "CHILD_IFRAME"</p>
+    <p style="color:navy">notice the console messages every second</p>
+    <form>childInput: <input type="text" id="childInput"></input></form>
+</body>
+
 </html>

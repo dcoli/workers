@@ -9,8 +9,7 @@
     </style>
     <script>
         (function smartLoad() {
-            // this line allows the two subdomains to share data
-            document.domain="magnoliatree.net"
+            document.domain="ngrok.io"
             var scriptLoaded = sessionStorage.getItem("isjs")
             if (scriptLoaded === 'true') {
                 return
@@ -19,9 +18,9 @@
                 var constructJS = document.createElement('script')
                 constructJS.id = "wupScriptLoader"
                 constructJS.type = "text/javascript"
-                constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js"
-                // this line makes sure the cdApi has been set before manipulating it.
-                constructJS.onload = function() {
+                // constructJS.src = "https://bcdn-4ff4f23f.we-stats.com/scripts/4ff4f23f/4ff4f23f.js"
+                constructJS.src = "https://bcdn-god.we-stats.com/scripts/dab0bb57/c56dcd94.js"
+                    constructJS.onload = function() {
                     cdApi.setCustomerSessionId('iframecsid')
                     cdApi.changeContext("PARENT_IFRAME")
                 }
@@ -40,18 +39,54 @@
     <form>
         parentInput: <input type="text" id="parentInput"></input>
     </form>
-    <iframe src="http://child.magnoliatree.net/child-worker.html" id="myframe"></iframe>
+    <iframe src="ttps://child.magnoliatree.net/child-worker.html" id="myframe"></iframe>
+    <script src="./worker-inline.mjs" id="scr">
+        var where = "inline"
+    </script>
     <ul>
+        <li><a id="switchlink" href="#">switch iframe src to new file</a>
+        </li>
+        <li>
+            <a id="backlink" href="#">switch back</a>        
+        </li>
         <li><a id="deletelink" href="#">remove iframe from DOM</a>
         </li>
+        <li><a id="nulllink" href="#" style="text-decoration: line-through;">set global cdApi var to undefined</a>
+        </li>
     </ul>
+    <h2>API</h2>
+    <ul>
+      <li><a id="apiCall" href="#">post to the getScore API</a>
+    </ul>
+    <pre style="font-size:smaller" id="api">
+        <script>document.write(JSON.stringify({ "action": "getScore", "activityAmountTotal": "400.00", "activityName": "GUEST_PAYMENT", "customerID": "dummy", "customerSessionID": "iframecsid", "IP": null, "platformType": "WEB", "solution": "AO", "uuid": "no_uuid", "yearOfBirth": 1970 }, null, 2))
+        </script>
+    </pre>
     <script>
-        var frame = document.querySelector('#myframe')
-        var del = document.querySelector('#deletelink')
+        var frame = document.querySelector('#myframe');
+        var del = document.querySelector('#deletelink');
         del.addEventListener('click', () => {
-            frame.parentNode.removeChild(frame)
-            cdApi.changeContext("PARENT_IFRAME")
+            frame.parentNode.removeChild(frame);
         });
+        document.querySelector('#switchlink').addEventListener('click', () => {
+            frame.src = './child-noworker.html';
+        });
+        document.querySelector('#backlink').addEventListener('click', () => {
+            frame.src = 'ttps://child.magnoliatree.net/child-worker.html'
+        });
+        document.querySelector('#nulllink').addEventListener('click', () => {
+            cdApi = undefined;
+        });
+        document.querySelector('#apiCall').addEventListener('click',(e)=>{
+            e.preventDefault()
+            var xmlHttp = new XMLHttpRequest()
+            xmlHttp.onreadystatechange = function() { 
+                if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                    document.querySelector('#api').innerHTML = xmlHttp.responseText
+            }
+            xmlHttp.open("GET", "./getScore", true)
+            xmlHttp.send(null)
+        })
     </script>
 </body>
 
