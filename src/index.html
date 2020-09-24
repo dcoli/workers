@@ -39,7 +39,7 @@
     <form>
         parentInput: <input type="text" id="parentInput"></input>
     </form>
-    <iframe src="https://child.magnoliatree.net/child-worker.html" id="myframe"></iframe>
+    <iframe src="http://child.magnoliatree.net/child-worker.html" id="myframe"></iframe>
     <script src="./worker-inline.mjs" id="scr">
         var where = "inline"
     </script>
@@ -72,7 +72,7 @@
             frame.src = './child-noworker.html';
         });
         document.querySelector('#backlink').addEventListener('click', () => {
-            frame.src = 'ttps://child.magnoliatree.net/child-worker.html'
+            frame.src = 'http://child.magnoliatree.net/child-worker.html'
         });
         document.querySelector('#nulllink').addEventListener('click', () => {
             cdApi = undefined;
